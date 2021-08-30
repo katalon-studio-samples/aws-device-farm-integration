@@ -71,6 +71,9 @@ If the build runs successfully, you will see a zip name `zip-with-dependencies.z
 
   - For Web app testing, select `Web App` and type a run name then click `Next`.
 3. In `Configure` Step, select Appium Java JUnit in test type drop-down. Upload the `zip-with-dependencies.zip` that created from Maven in the previous step then click `Next`.
+
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-upload-zip-file.png" width=70% alt="upload-zip-file">
+
 4. In `Select devices` Step, choose a suitable device pool then click `Next`.
 5. In `Specify device state` Step, review other settings and change when needed then click `Next`
 6. In `Review and start run` Step, review all of configurations one last time then click `Confirm and Start Run`.
