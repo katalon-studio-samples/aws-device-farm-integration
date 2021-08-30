@@ -32,12 +32,15 @@ Your machine should
   - In `Appium driver`, select Android Driver for Android devices; or iOS Driver for iOS devices.
   - Add a desired capability `platformName` with value `Android` for Android devices; or `iOS` for iOS devices.
   - Press Apply and Close.
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-configure-desired-capabilities.png" width=70% alt="configure-desired-capabilities">
 
 ### Configure aws-device-farm-integration project
 
 1. Clone this repository
 2. Open this open in any IDE choice (Eclipse, VSCode,...)
 3. Zip your Katalon project and put in src/test/resources folder
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/2-zip-demo-project.png" width=40% alt="zip-demo-project">
+
 4. Open config.properties file and change the following variables as your context:
   - `KATALON_VERSION`: Katalon Runtime Engine version
     - (e.g. `"8.1.0, 7.8.2"`)
@@ -52,19 +55,33 @@ mvn clean package -DskipTests=true
 ```
 If the build runs successfully, you will see a zip name `zip-with-dependencies.zip` in the target folder. We will use this file for the next step.
 
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/2-build-project-with-maven.png" width=40% alt="build-project-with-maven">
+
 ### Configure AWS Device Farm
 
 1. In AWS Console, create or clicking on an existing project
+
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-create-test-project.png" width=70% alt="create-test-project">
+
 2. Click on `Create a new run`
 3. In `Choose Application` step, 
   - For Mobile app testing, select `Mobile App` tab and upload your tested application (.apk for Anroid application and .ipa for iOS application). Wait for uploading app successfully then click `Next`.
+
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-upload-mobile-app.png" width=70% alt="upload-mobile-app">
+
   - For Web app testing, select `Web App` and type a run name then click `Next`.
 3. In `Configure` Step, select Appium Java JUnit in test type drop-down. Upload the `zip-with-dependencies.zip` that created from Maven in the previous step then click `Next`.
 4. In `Select devices` Step, choose a suitable device pool then click `Next`.
 5. In `Specify device state` Step, review other settings and change when needed then click `Next`
 6. In `Review and start run` Step, review all of configurations one last time then click `Confirm and Start Run`.
+
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-finish-creating-run.png" width=70% alt="finish-creating-run">
+
 7. A run already starts, we can click on test run name and a specificed device to view the test status
 
-## Examples
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-view-test-run-status.png" width=70% alt="view-test-run-status">
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-test-runs-finish.png" width=70% alt="test-runs-finish">
+
+## Examples Katalon project and AUTs
 - Sample Katalon project in `aut/KatalonDemoProject`
 - Sample iOS application in `aut/Coffee Timer.ipa`
