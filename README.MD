@@ -15,7 +15,7 @@ Your machine should
 * Install [Apache Maven](https://maven.apache.org/download.cgi) version 3.3.9 or later
 * Install Java JDK 8 
 
-## Supported testing type and platform
+## Supported testing types and platforms
 - [x] Mobile app on Android
 - [x] Mobile app on iOS
 - [x] Web app on Android
