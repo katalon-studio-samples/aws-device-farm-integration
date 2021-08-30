@@ -1,0 +1,4 @@
+ss.add_fd(3)
+ss.recv fd=3 len=294
+ss.recv fd=3 len=0
+ss.remove_fd(3)

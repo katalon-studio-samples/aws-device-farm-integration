@@ -1,0 +1,271 @@
+[35m[Appium][39m Welcome to Appium v1.21.0
+[35m[Appium][39m Non-default server args:
+[35m[Appium][39m   port: 62806
+[35m[Appium][39m   loglevel: info
+[35m[Appium][39m   tmpDir: /var/folders/y_/wqvglkk962b4gr6d5s3rjj8c0000gp/T//Katalon/Appium/Temp1629448521554
+[35m[Appium][39m   chromedriverPort: 62807
+[35m[Appium][39m Deprecated server args:
+[35m[Appium][39m   [31m--chromedriver-port[39m => --default-capabilities
+[35m[Appium][39m Default capabilities, which will be added to each request unless overridden by desired capabilities:
+[35m[Appium][39m   chromedriverPort: 62807
+[35m[Appium][39m Appium REST http interface listener started on 0.0.0.0:62806
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/status[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/status [39m[32m200[39m [90m5 ms - 68[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/status[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/status [39m[32m200[39m [90m1 ms - 68[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session[39m
+[35m[HTTP][39m [90m{"desiredCapabilities":{"app":"/Users/duyanhluong/Library/Developer/Xcode/DerivedData/Coffee_Timer-fdgdcbqjhmsuiudmreqbzndbgnfb/Build/Products/Debug-iphonesimulator/Coffee Timer.app","noReset":true,"deviceName":"iPhone 8","fullReset":false,"wdaLocalPort":62827,"newCommandTimeout":1800,"realDeviceLogger":"/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/tools/deviceconsole","platformVersion":"14.4","automationName":"XCUITest","waitForAppScript":"true;","platformName":"iOS","udid":"1EB7563E-AAEB-48D9-A382-26A882656373"},"capabilities":{"firstMatch":[{"appium:app":"/Users/duyanhluong/Library/Developer/Xcode/DerivedData/Coffee_Timer-fdgdcbqjhmsuiudmreqbzndbgnfb/Build/Products/Debug-iphonesimulator/Coffee Timer.app","appium:automationName":"XCUITest","appium:deviceName":"iPhone 8","appium:fullReset":false,"appium:newCommandTimeout":1800,"appium:noReset":true,"platformName":"ios","appium:platformVersion":"14.4","realDeviceLogger":"/Applications/Katalon Studio.app/Contents/Eclipse/configu...[39m
+[35m[BaseDriver][39m The following capabilities are not standard capabilities and should have an extension prefix:
+[35m[BaseDriver][39m   realDeviceLogger
+[35m[BaseDriver][39m   chromedriverPort
+[35m[Appium][39m Appium v1.21.0 creating new XCUITestDriver (v3.43.0) session
+[35m[BaseDriver][39m The following capabilities were provided, but are not recognized by Appium:
+[35m[BaseDriver][39m   chromedriverPort
+[35m[BaseDriver][39m Session created with session id: f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b
+[35m[iOSSim][39m Constructing iOS simulator for Xcode version 12.4 with udid '1EB7563E-AAEB-48D9-A382-26A882656373'
+[35m[XCUITest][39m Determining device to run tests on: udid: '1EB7563E-AAEB-48D9-A382-26A882656373', real device: false
+[35m[BaseDriver][39m Using local app '/Users/duyanhluong/Library/Developer/Xcode/DerivedData/Coffee_Timer-fdgdcbqjhmsuiudmreqbzndbgnfb/Build/Products/Debug-iphonesimulator/Coffee Timer.app'
+[35m[WebDriverAgent][39m Using WDA path: '/usr/local/lib/node_modules/appium/node_modules/appium-webdriveragent'
+[35m[WebDriverAgent][39m Using WDA agent: '/usr/local/lib/node_modules/appium/node_modules/appium-webdriveragent/WebDriverAgent.xcodeproj'
+[35m[XCUITest][39m Continuing without capturing device logs: iOS Simulator with udid '1EB7563E-AAEB-48D9-A382-26A882656373' is not running
+[35m[XCUITest][39m Setting up simulator
+[35m[iOSSim][39m Starting Simulator UI with command: open -Fn /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app --args -CurrentDeviceUDID 1EB7563E-AAEB-48D9-A382-26A882656373
+[35m[iOSSim][39m Booting Simulator '1EB7563E-AAEB-48D9-A382-26A882656373'
+[35m[iOSSim][39m Simulator with UDID 1EB7563E-AAEB-48D9-A382-26A882656373 booted in 12.775s
+[35m[DevCon Factory][39m Requesting connection for device 1EB7563E-AAEB-48D9-A382-26A882656373 on local port 62827
+[35m[DevCon Factory][39m Successfully requested the connection for 1EB7563E-AAEB-48D9-A382-26A882656373:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WebDriverAgent][39m Launching WebDriverAgent on the device
+[35m[WebDriverAgent][39m WebDriverAgent does not need a cleanup. The sources are up to date (1626256500917 >= 1626256500917)
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WebDriverAgent][39m Getting status of WebDriverAgent on device timed out. Continuing
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m connect ECONNREFUSED 127.0.0.1:62827
+[35m[WD Proxy][39m Determined the downstream protocol as 'W3C'
+[35m[XCUITest][39m Skipping setting of the initial display orientation. Set the "orientation" capability to either "LANDSCAPE" or "PORTRAIT", if this is an undesired behavior.
+[35m[Appium][39m New XCUITestDriver session created successfully, session f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b added to master session list
+[35m[HTTP][39m [37m<-- POST /wd/hub/session [39m[32m200[39m [90m157614 ms - 824[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[XCUITest][39m Merging WDA caps over Appium caps for session detail response
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b [39m[32m200[39m [90m250 ms - 772[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[XCUITest][39m Merging WDA caps over Appium caps for session detail response
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b [39m[32m200[39m [90m1 ms - 772[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/status[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/status [39m[32m200[39m [90m1 ms - 68[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/timeouts[39m
+[35m[HTTP][39m [90m{"implicit":60000}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/timeouts [39m[32m200[39m [90m2 ms - 14[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/execute/sync[39m
+[35m[HTTP][39m [90m{"script":"mobile: source","args":[{"format":"xml","excludedAttributes":"visible"}]}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/execute/sync [39m[32m200[39m [90m1044 ms - 10336[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/screenshot[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/screenshot [39m[32m200[39m [90m113 ms - 163020[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element[39m
+[35m[HTTP][39m [90m{"using":"xpath","value":"//*[@type = 'XCUIElementTypeStaticText' and @label = 'Green Tea' and @name = 'Green Tea']"}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element [39m[32m200[39m [90m550 ms - 137[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/window/rect[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/window/rect [39m[32m200[39m [90m58 ms - 48[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/elements[39m
+[35m[HTTP][39m [90m{"using":"xpath","value":"//*[@type = 'XCUIElementTypeStaticText' and @label = 'Green Tea' and @name = 'Green Tea']"}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/elements [39m[32m200[39m [90m559 ms - 139[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element/27000000-0000-0000-3EA6-000000000000/location[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element/27000000-0000-0000-3EA6-000000000000/location [39m[32m200[39m [90m51 ms - 26[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/touch/perform[39m
+[35m[HTTP][39m [90m{"actions":[{"action":"tap","options":{"x":1,"y":1,"element":"27000000-0000-0000-3EA6-000000000000"}}]}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/touch/perform [39m[32m200[39m [90m222 ms - 14[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/execute/sync[39m
+[35m[HTTP][39m [90m{"script":"mobile: source","args":[{"format":"xml","excludedAttributes":"visible"}]}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/execute/sync [39m[32m200[39m [90m387 ms - 3868[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/screenshot[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/screenshot [39m[32m200[39m [90m58 ms - 192964[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element[39m
+[35m[HTTP][39m [90m{"using":"xpath","value":"//*[@type = 'XCUIElementTypeStaticText' and @label = 'Start' and @name = 'Start']"}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element [39m[32m200[39m [90m275 ms - 137[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/window/rect[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/window/rect [39m[32m200[39m [90m32 ms - 48[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/elements[39m
+[35m[HTTP][39m [90m{"using":"xpath","value":"//*[@type = 'XCUIElementTypeStaticText' and @label = 'Start' and @name = 'Start']"}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/elements [39m[32m200[39m [90m203 ms - 139[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element/48000000-0000-0000-3EA6-000000000000/location[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/element/48000000-0000-0000-3EA6-000000000000/location [39m[32m200[39m [90m31 ms - 27[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/touch/perform[39m
+[35m[HTTP][39m [90m{"actions":[{"action":"tap","options":{"x":1,"y":1,"element":"48000000-0000-0000-3EA6-000000000000"}}]}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/touch/perform [39m[32m200[39m [90m179 ms - 14[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mPOST[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/execute/sync[39m
+[35m[HTTP][39m [90m{"script":"mobile: source","args":[{"format":"xml","excludedAttributes":"visible"}]}[39m
+[35m[HTTP][39m [37m<-- POST /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/execute/sync [39m[32m200[39m [90m367 ms - 3868[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mGET[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/screenshot[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[HTTP][39m [37m<-- GET /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b/screenshot [39m[32m200[39m [90m53 ms - 192964[39m
+[35m[HTTP][39m [90m[39m
+[35m[HTTP][39m [37m-->[39m [37mDELETE[39m [37m/wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b[39m
+[35m[HTTP][39m [90m{}[39m
+[35m[Appium][39m Removing session f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b from our master session list
+[35m[DevCon Factory][39m Releasing connections for 1EB7563E-AAEB-48D9-A382-26A882656373 device on any port number
+[35m[DevCon Factory][39m Found cached connections to release: ["1EB7563E-AAEB-48D9-A382-26A882656373:62827"]
+[35m[HTTP][39m [37m<-- DELETE /wd/hub/session/f8bddcc1-0ff6-4a83-bdf5-5cd87d36830b [39m[32m200[39m [90m1024 ms - 14[39m
+[35m[HTTP][39m [90m[39m
