@@ -31,7 +31,7 @@ Your machine should
   - In `Remote server URL`, enter the Appium server URL: http://127.0.0.1:4723/wd/hub and select Appium in Remote server type.
   - In `Appium driver`, select Android Driver for Android devices; or iOS Driver for iOS devices.
   - Add a desired capability `platformName` with value `Android` for Android devices; or `iOS` for iOS devices.
-  - Press Apply and Close.
+  - Press `Apply and Close`.
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-configure-desired-capabilities.png" width=70% alt="configure-desired-capabilities">
 
 ### Configure aws-device-farm-integration project
@@ -70,7 +70,7 @@ If the build runs successfully, you will see a zip name `zip-with-dependencies.z
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-upload-mobile-app.png" width=70% alt="upload-mobile-app">
 
   - For Web app testing, select `Web App` and type a run name then click `Next`.
-3. In `Configure` Step, select Appium Java JUnit in test type drop-down. Upload the `zip-with-dependencies.zip` that created from Maven in the previous step then click `Next`.
+3. In `Configure` Step, select `Appium Java JUnit` in test type drop-down. Upload the `zip-with-dependencies.zip` that was created from Maven in the previous step then click `Next`.
 
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-upload-zip-file.png" width=70% alt="upload-zip-file">
 
