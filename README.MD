@@ -57,7 +57,7 @@ If the build runs successfully, you will see a zip name `zip-with-dependencies.z
 
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/2-build-project-with-maven.png" width=40% alt="build-project-with-maven">
 
-### Configure AWS Device Farm
+### Configure test project on AWS Device Farm
 
 1. In AWS Console, create or clicking on an existing project
 
