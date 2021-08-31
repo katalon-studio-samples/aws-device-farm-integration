@@ -9,7 +9,7 @@ By using **aws-device-farm-integration**, you can execute your Katalon test scri
 You need
 
 * An active [Katalon Runtime Engine](https://docs.katalon.com/katalon-studio/docs/license.html#katalon-runtime-engine) license
-* KRE v7.7.2+
+* KRE v7.8+
 
 Your machine should
 
