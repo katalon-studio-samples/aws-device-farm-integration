@@ -2,13 +2,14 @@
 
 **aws-device-farm-integration** is a Proof of Concept (POC) built for executing Katalon Studio tests on AWS Device Farm. [AWS Device Farm](https://aws.amazon.com/device-farm/) only supports running tests using supported frameworks such as [Working with Appium and AWS Device Farm](https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types-appium.html); hence, Katalon users cannot execute their tests on AWS Device farm directly.
 
-By using **aws-device-farm-integration**, you can execute your Katalon test scripts with devices provided on App Center Test. This tutorial shows you how to configure Katalon projects, AWS device farm and **aws-device-farm-integration** to execute the usage sample, which is **KatalonDemoProject**. Also, at the end of this tutorial, we provide some configurations that you can try to execute your Katalon projects on AWS Device Farm.
+By using **aws-device-farm-integration**, you can execute your Katalon test scripts with devices provided on AWS Device Farm. This tutorial shows you how to configure Katalon projects, AWS device farm and **aws-device-farm-integration** to execute the usage sample, which is **KatalonDemoProject**. Also, at the end of this tutorial, we provide some configurations that you can try to execute your Katalon projects on AWS Device Farm.
 
 ## Prerequisites
 
 You need
 
 * An active [Katalon Runtime Engine](https://docs.katalon.com/katalon-studio/docs/license.html#katalon-runtime-engine) license
+* KRE v7.7.2+
 
 Your machine should
 
