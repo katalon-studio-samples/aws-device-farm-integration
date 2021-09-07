@@ -33,7 +33,8 @@ Your machine should
   - In `Appium driver`, select Android Driver for Android devices; or iOS Driver for iOS devices.
   - Add a desired capability `platformName` with value `Android` for Android devices; or `iOS` for iOS devices.
     - For Android app testing, we need to add extra desired capabilities `appPackage: [app ID]` and `appActivity: [main activity name]`. Main activity can retrieve after uploading app to AWS Device Farm
-    <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-android-main-activity.png" width=70% alt="android-main-activity">
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-android-main-activity.png" width=50% alt="android-main-activity">
+
   - Press `Apply and Close`.
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-configure-desired-capabilities.png" width=70% alt="configure-desired-capabilities">
 
