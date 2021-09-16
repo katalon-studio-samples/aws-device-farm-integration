@@ -33,8 +33,7 @@ Your machine should
   - In `Appium driver`, select Android Driver for Android devices; or iOS Driver for iOS devices.
   - Add a desired capability `platformName` with value `Android` for Android devices; or `iOS` for iOS devices.
     - For Android app testing, we need to add extra desired capabilities `appPackage: [app ID]` and `appActivity: [main activity name]`. Main activity can retrieve after uploading app to AWS Device Farm
-<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-android-main-activity.png" width=50% alt="android-main-activity">
-
+    <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-android-main-activity.png" width=70% alt="android-main-activity">
   - Press `Apply and Close`.
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/1-configure-desired-capabilities.png" width=70% alt="configure-desired-capabilities">
 
@@ -51,8 +50,10 @@ Your machine should
   - `KATALON_PROJECT_PACKAGE_FILE`: Your package file
     - (e.g. `"KatalonDemoProject.zip"`)
   - `KATALON_EXECUTE_ARGS`: The arguments part of your Katalon run command<br>
-    - (e.g. `"-retry=0 -testSuitePath="Test Suites/Regression Tests" -executionProfile="default" -browserType="Remote" -apiKey="xxxxxx""`)
+    - (e.g. `"-retry=0 -testSuitePath="Test Suites/Regression Tests" -executionProfile="default" -browserType="Remote" -reportFolder=$DEVICEFARM_LOG_DIR -apiKey="xxxxxx""`)
     > Please note that the `-browserType` argument must be set to `"Remote"`.
+
+    > The `-reportFolder=$DEVICEFARM_LOG_DIR` argument allows us can download the execution report in Files/Customer Artifact of the AWS Device Farm Job
 5. Build aws-device-farm-integration by typing the below command in terminal
 ```
 mvn clean package -DskipTests=true
@@ -88,6 +89,10 @@ If the build runs successfully, you will see a zip name `zip-with-dependencies.z
 
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-view-test-run-status.png" width=70% alt="view-test-run-status">
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-test-runs-finish.png" width=70% alt="test-runs-finish">
+
+After the run finishes, we can download the execution report at `Files/Customer Artifacts`
+
+<img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-download-report.png" width=70% alt="download-report">
 
 ## Examples Katalon project and AUTs
 - Sample Katalon project in `aut/KatalonDemoProject`

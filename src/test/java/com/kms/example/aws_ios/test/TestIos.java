@@ -68,7 +68,9 @@ public class TestIos {
         ConsoleLogger.logInfo("KATALON_VERSION: " + version);
         ConsoleLogger.logInfo("KATALON_PROJECT_PACKAGE_FILE: " + projectPackageFile);
         ConsoleLogger.logInfo("KATALON_PROJECT_PATH: " + projectPath);
-        
+        ConsoleLogger.logInfo("DEVICEFARM_LOG_DIR: " + System.getenv("DEVICEFARM_LOG_DIR"));
+        executeArgs = executeArgs.replace("$DEVICEFARM_LOG_DIR", System.getenv("DEVICEFARM_LOG_DIR"));
+
         boolean result = SideloadUtils.executeKatalon(
                 projectPackageFile,
                 version,
