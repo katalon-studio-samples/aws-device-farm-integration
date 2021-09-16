@@ -1,6 +1,6 @@
-# Jenkins-integration
+# Jenkins iIntegration
 
-In this tutorial, we will demostrate how to setup and run automatically **aws-device-farm-integration** or a similar project from Git in Jenkins pipeline
+In this tutorial, we will demostrate how to setup and run **aws-device-farm-integration** or a similar project from Git in Jenkins pipeline. That will help to deploy and run your tests automatically.
 
 ## Prerequisites
 
