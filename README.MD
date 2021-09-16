@@ -97,3 +97,6 @@ After the run finishes, we can download the execution report at `Files/Customer 
 ## Examples Katalon project and AUTs
 - Sample Katalon project in `aut/KatalonDemoProject`
 - Sample iOS application in `aut/Coffee Timer.ipa`
+
+## CI/CD pipelines
+- [Jenkins integration](https://github.com/katalon-studio-samples/aws-device-farm-integration/blob/main/docs/Jenkins-integration.MD)
