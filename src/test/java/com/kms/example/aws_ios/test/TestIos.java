@@ -64,12 +64,16 @@ public class TestIos {
         String projectPackageFile = SideloadUtils.getProperty("KATALON_PROJECT_PACKAGE_FILE", KATALON_PROJECT_PACKAGE_FILE);
         String projectPath = SideloadUtils.getProperty("KATALON_PROJECT_PATH", KATALON_PROJECT_PATH);
         String executeArgs = SideloadUtils.getProperty("KATALON_EXECUTE_ARGS", KATALON_EXECUTE_ARGS);
+        String deviceFarmLogDir = System.getenv("DEVICEFARM_LOG_DIR");
 
         ConsoleLogger.logInfo("KATALON_VERSION: " + version);
         ConsoleLogger.logInfo("KATALON_PROJECT_PACKAGE_FILE: " + projectPackageFile);
         ConsoleLogger.logInfo("KATALON_PROJECT_PATH: " + projectPath);
-        ConsoleLogger.logInfo("DEVICEFARM_LOG_DIR: " + System.getenv("DEVICEFARM_LOG_DIR"));
-        executeArgs = executeArgs.replace("$DEVICEFARM_LOG_DIR", System.getenv("DEVICEFARM_LOG_DIR"));
+        ConsoleLogger.logInfo("DEVICEFARM_LOG_DIR: " + deviceFarmLogDir);
+        if (executeArgs != null && deviceFarmLogDir != null) {
+            executeArgs = executeArgs.replace("$DEVICEFARM_LOG_DIR", System.getenv("DEVICEFARM_LOG_DIR"));
+        }
+        
 
         boolean result = SideloadUtils.executeKatalon(
                 projectPackageFile,
