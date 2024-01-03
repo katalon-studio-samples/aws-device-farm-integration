@@ -79,6 +79,164 @@ If the build runs successfully, you will see a zip name `zip-with-dependencies.z
 
 <img src="https://raw.githubusercontent.com/katalon-studio-samples/aws-device-farm-integration/main/docs/images/3-upload-zip-file.png" width=70% alt="upload-zip-file">
 
+In `Appium Java Unit section`, click Edit and replace the yaml file with the content below:
+
+```
+version: 0.1
+
+# Phases represent collections of commands that are executed during your test run on the test host.
+phases:
+
+  # The install phase contains commands for installing dependencies to run your tests.
+  # For your convenience, certain dependencies are preinstalled on the test host. 
+
+  # For iOS tests, Java 12 is preinstalled and preconfigured on the test host. For more information
+  # about how to package your Java dependencies for your test, please see:
+  # https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types-appium.html
+  # Additionally, you can use the Node.JS tools nvm, npm, and avm to setup your Appium server.
+  install:
+    commands:
+      # The Appium server is written using Node.js. In order to run your desired version of Appium,
+      # you first need to set up a Node.js environment that is compatible with your version of Appium.
+      # For iOS, use "nvm use" to switch between the two preinstalled NodeJS versions 14 and 16, and 
+      # use "nvm install" to download a new version of your choice.
+      - export NVM_DIR=$HOME/.nvm
+      - . $NVM_DIR/nvm.sh
+      - nvm use 16
+      - node --version
+
+      # For iOS, Appium versions 1.22.2 and 2.2.1 are preinstalled and selectable through avm.
+      # For all other versions, please use npm to install them. For example:
+      # - npm install -g appium@2.1.3;
+      # Note that, for iOS devices, Appium 2 is only supported on iOS version 14 and above using
+      # NodeJS version 16 and above.
+      - avm 2.2.1
+      - appium --version
+
+      # For Appium version 2, for iOS tests, the XCUITest driver is preinstalled using version 5.7.0
+      # If you want to install a different version of the driver, you can use the Appium extension CLI
+      # to uninstall the existing XCUITest driver and install your desired version:
+      # - |-
+      #   if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ];
+      #   then
+      #     appium driver uninstall xcuitest;
+      #     appium driver install xcuitest@5.8.1;
+      #   fi;
+
+      # We recommend setting the Appium server's base path explicitly for accepting commands.
+      - export APPIUM_BASE_PATH=/wd/hub
+
+      # On iOS, all tests run using Java version 12. This is not configurable at this time.
+      - java -version
+
+  # The pre-test phase contains commands for setting up your test environment.
+  pre_test:
+    commands:
+      # Setup the CLASSPATH so that Java knows where to find your test classes.
+      - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/*
+      - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/dependency-jars/*
+
+      # Device farm provides different pre-built versions of WebDriverAgent, an essential Appium
+      # dependency for iOS devices, and each version is suggested for different versions of Appium:
+      # DEVICEFARM_WDA_DERIVED_DATA_PATH_V8: this version is suggested for Appium 2
+      # DEVICEFARM_WDA_DERIVED_DATA_PATH_V7: this version is suggested for Appium 1
+      # Additionally, for iOS versions 16 and below, the device unique identifier (UDID) needs
+      # to be slightly modified for Appium tests.
+      - |-
+        if [ $DEVICEFARM_DEVICE_PLATFORM_NAME = "iOS" ];
+        then
+          if [ $(appium --version | cut -d "." -f1) -ge 2 ];
+          then
+            DEVICEFARM_WDA_DERIVED_DATA_PATH=$DEVICEFARM_WDA_DERIVED_DATA_PATH_V8;
+          else
+            DEVICEFARM_WDA_DERIVED_DATA_PATH=$DEVICEFARM_WDA_DERIVED_DATA_PATH_V7;
+          fi;
+          
+          if [ $(echo $DEVICEFARM_DEVICE_OS_VERSION | cut -d "." -f 1) -le 16 ];
+          then
+            DEVICEFARM_DEVICE_UDID_FOR_APPIUM=$(echo $DEVICEFARM_DEVICE_UDID | tr -d "-");
+          else
+            DEVICEFARM_DEVICE_UDID_FOR_APPIUM=$DEVICEFARM_DEVICE_UDID;
+          fi;
+        fi;
+
+      # We recommend starting the Appium server process in the background using the command below.
+      # The Appium server log will be written to the $DEVICEFARM_LOG_DIR directory.
+      # The environment variables passed as capabilities to the server will be automatically assigned
+      # during your test run based on your test's specific device.
+      # For more information about which environment variables are set and how they're set, please see
+      # https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environment-variables.html
+      - |-
+        appium --base-path=$APPIUM_BASE_PATH --log-timestamp \
+          --log-no-colors --relaxed-security --default-capabilities \
+          "{\"appium:deviceName\": \"$DEVICEFARM_DEVICE_NAME\", \
+          \"platformName\": \"$DEVICEFARM_DEVICE_PLATFORM_NAME\", \
+          \"appium:app\": \"$DEVICEFARM_APP_PATH\", \
+          \"appium:udid\":\"$DEVICEFARM_DEVICE_UDID_FOR_APPIUM\", \
+          \"appium:platformVersion\": \"$DEVICEFARM_DEVICE_OS_VERSION\", \
+          \"appium:derivedDataPath\": \"$DEVICEFARM_WDA_DERIVED_DATA_PATH\", \
+          \"appium:usePrebuiltWDA\": true, \
+          \"appium:automationName\": \"XCUITest\"}" \
+          >> $DEVICEFARM_LOG_DIR/appium.log 2>&1 &
+
+      # This code will wait until the Appium server starts.
+      - |-
+        appium_initialization_time=0;
+        until curl --silent --fail "http://0.0.0.0:4723${APPIUM_BASE_PATH}/status"; do
+          if [[ $appium_initialization_time -gt 30 ]]; then
+            echo "Appium did not start within 30 seconds. Exiting...";
+            exit 1;
+          fi;
+          appium_initialization_time=$((appium_initialization_time + 1));
+          echo "Waiting for Appium to start on port 4723...";
+          sleep 1;
+        done;
+
+  # The test phase contains commands for running your tests.
+  test:
+    commands:
+      # Your test package is downloaded and unpackaged into the $DEVICEFARM_TEST_PACKAGE_PATH directory.
+      - cd $DEVICEFARM_TEST_PACKAGE_PATH
+      - echo "Starting the Appium Java JUnit test"
+
+      # Below are examples of how to run Appium Java  tests on Device Farm using different JUnit versions:
+      # 1. JUnit 5 (default configuration)
+      # 2. TestNG with support for running JUnit 4 tests
+      # 3. JUnit 4
+      # Uncomment and adapt the section that corresponds to your chosen JUnit version and test setup.
+
+      # JUnit 5 example:
+
+      # TestNG with JUnit 4 support example:
+      # Note: TestNG can directly run JUnit 4 tests. Ensure your TestNG suite XML is set up accordingly.
+      # For details, see the TestNG documentation: http://testng.org/doc/documentation-main.html
+      # - |-
+      #   java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.testng.TestNG -junit \
+      #     -testjar *-tests.jar -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
+
+      # JUnit 4 example:
+      # Make sure to replace 'Replace.With Your.TestClasses Here' with your actual test classes.
+      - export TEST_CLASSES="com.kms.example.aws_ios.test.TestIos"
+      - java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.junit.runner.JUnitCore $TEST_CLASSES
+
+      # Before starting tests, verify that all dependencies and configurations are in place.
+      # For more information, refer to AWS Device Farm's documentation on Appium Java JUnit testing:
+      # https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types-appium.html
+
+  # The post-test phase contains commands that are run after your tests have completed.
+  # If you need to run any commands to generating logs and reports on how your test performed,
+  # we recommend adding them to this section.
+  post_test:
+    commands:
+
+# Artifacts are a list of paths on the filesystem where you can store test output and reports.
+# All files in these paths will be collected by Device Farm.
+# These files will be available through the ListArtifacts API as your "Customer Artifacts".
+artifacts:
+  # By default, Device Farm will collect your artifacts from the $DEVICEFARM_LOG_DIR directory.
+  - $DEVICEFARM_LOG_DIR
+```
+
 4. In `Select devices` Step, choose a suitable device pool then click `Next`.
 5. In `Specify device state` Step, review other settings and change when needed then click `Next`
 6. In `Review and start run` Step, review all of configurations one last time then click `Confirm and Start Run`.
