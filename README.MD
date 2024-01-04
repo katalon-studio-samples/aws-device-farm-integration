@@ -81,6 +81,8 @@ If the build runs successfully, you will see a zip name `zip-with-dependencies.z
 
 In `Appium Java Unit section`, click Edit and replace the yaml file with the content below:
 
+- iOS
+
 ```
 version: 0.1
 
@@ -200,6 +202,141 @@ phases:
       - echo "Starting the Appium Java JUnit test"
 
       # Below are examples of how to run Appium Java  tests on Device Farm using different JUnit versions:
+      # 1. JUnit 5 (default configuration)
+      # 2. TestNG with support for running JUnit 4 tests
+      # 3. JUnit 4
+      # Uncomment and adapt the section that corresponds to your chosen JUnit version and test setup.
+
+      # JUnit 5 example:
+
+      # TestNG with JUnit 4 support example:
+      # Note: TestNG can directly run JUnit 4 tests. Ensure your TestNG suite XML is set up accordingly.
+      # For details, see the TestNG documentation: http://testng.org/doc/documentation-main.html
+      # - |-
+      #   java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.testng.TestNG -junit \
+      #     -testjar *-tests.jar -d $DEVICEFARM_LOG_DIR/test-output -verbose 10
+
+      # JUnit 4 example:
+      # Make sure to replace 'Replace.With Your.TestClasses Here' with your actual test classes.
+      - export TEST_CLASSES="com.kms.example.aws_ios.test.TestIos"
+      - java -Dappium.screenshots.dir=$DEVICEFARM_SCREENSHOT_PATH org.junit.runner.JUnitCore $TEST_CLASSES
+
+      # Before starting tests, verify that all dependencies and configurations are in place.
+      # For more information, refer to AWS Device Farm's documentation on Appium Java JUnit testing:
+      # https://docs.aws.amazon.com/devicefarm/latest/developerguide/test-types-appium.html
+
+  # The post-test phase contains commands that are run after your tests have completed.
+  # If you need to run any commands to generating logs and reports on how your test performed,
+  # we recommend adding them to this section.
+  post_test:
+    commands:
+
+# Artifacts are a list of paths on the filesystem where you can store test output and reports.
+# All files in these paths will be collected by Device Farm.
+# These files will be available through the ListArtifacts API as your "Customer Artifacts".
+artifacts:
+  # By default, Device Farm will collect your artifacts from the $DEVICEFARM_LOG_DIR directory.
+  - $DEVICEFARM_LOG_DIR
+```
+
+- Android
+```
+version: 0.1
+
+# This flag enables your test to run using Device Farm's Amazon Linux 2 test host. For more information,
+# please see https://docs.aws.amazon.com/devicefarm/latest/developerguide/amazon-linux-2.html
+android_test_host: legacy
+
+# Phases represent collections of commands that are executed during your test run on the test host.
+phases:
+
+  # The install phase contains commands for installing dependencies to run your tests.
+  # For your convenience, certain dependencies are preinstalled on the test host. To lean about which
+  # software is included with the host, and how to install additional software, please see:
+  # https://docs.aws.amazon.com/devicefarm/latest/developerguide/amazon-linux-2-supported-software.html
+
+  # Many software libraries you may need are available from the test host using the devicefarm-cli tool.
+  # To learn more about what software is available from it and how to use it, please see:
+  # https://docs.aws.amazon.com/devicefarm/latest/developerguide/amazon-linux-2-devicefarm-cli.html
+  install:
+    commands:
+      # The Appium server is written using Node.js. In order to run your desired version of Appium,
+      # you first need to set up a Node.js environment that is compatible with your version of Appium.
+      - devicefarm-cli use node 18
+      - node --version
+
+      # Use the devicefarm-cli to select a preinstalled major version of Appium.
+      - devicefarm-cli use appium 1
+      - appium --version
+
+      # The Device Farm service automatically updates the preinstalled Appium versions over time to
+      # incorporate the latest minor and patch versions for each major version. If you wish to
+      # select a specific version of Appium, you can use NPM to install it.
+      # - npm install -g appium@2.1.3
+
+      # For Appium version 2, Device Farm automatically updates the preinstalled UIAutomator2 driver
+      # over time to incorporate the latest minor and patch versions for its major version 2. If you
+      # want to install a specific version of the driver, you can use the Appium extension CLI to
+      # uninstall the existing UIAutomator2 driver and install your desired version:
+      # - appium driver uninstall uiautomator2
+      # - appium driver install uiautomator2@2.34.0
+
+      # We recommend setting the Appium server's base path explicitly for accepting commands.
+      - export APPIUM_BASE_PATH=/wd/hub
+
+      # Use the devicefarm-cli to setup a Java environment, with which you can run your test suite.
+      - devicefarm-cli use java 11
+      - java -version
+
+  # The pre-test phase contains commands for setting up your test environment.
+  pre_test:
+    commands:
+      # Setup the CLASSPATH so that Java knows where to find your test classes.
+      - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/*
+      - export CLASSPATH=$CLASSPATH:$DEVICEFARM_TEST_PACKAGE_PATH/dependency-jars/*
+
+      # Appium downloads Chromedriver using a feature that is considered insecure for multitenant
+      # environments. This is not a problem for Device Farm because each test host is allocated
+      # exclusively for one customer, then terminated entirely. For more information, please see
+      # https://github.com/appium/appium/blob/master/packages/appium/docs/en/guides/security.md
+
+      # We recommend starting the Appium server process in the background using the command below.
+      # The Appium server log will be written to the $DEVICEFARM_LOG_DIR directory.
+      # The environment variables passed as capabilities to the server will be automatically assigned
+      # during your test run based on your test's specific device.
+      # For more information about which environment variables are set and how they're set, please see
+      # https://docs.aws.amazon.com/devicefarm/latest/developerguide/custom-test-environment-variables.html
+      - |-
+        appium  --default-capabilities \
+          "{\"appium:deviceName\": \"$DEVICEFARM_DEVICE_NAME\", \
+          \"platformName\": \"$DEVICEFARM_DEVICE_PLATFORM_NAME\", \
+          \"appium:app\": \"$DEVICEFARM_APP_PATH\", \
+          \"appium:udid\":\"$DEVICEFARM_DEVICE_UDID\", \
+          \"appium:platformVersion\": \"$DEVICEFARM_DEVICE_OS_VERSION\", \
+          \"appium:automationName\": \"UiAutomator2\"}" \
+          >> $DEVICEFARM_LOG_DIR/appium.log 2>&1 &
+
+      # This code will wait until the Appium server starts.
+      - |-
+        appium_initialization_time=0;
+        until curl --silent --fail "http://0.0.0.0:4723/wd/hub/status"; do
+          if [[ $appium_initialization_time -gt 30 ]]; then
+            echo "Appium did not start within 30 seconds. Exiting...";
+            exit 1;
+          fi;
+          appium_initialization_time=$((appium_initialization_time + 1));
+          echo "Waiting for Appium to start on port 4723...";
+          sleep 1;
+        done;
+
+  # The test phase contains commands for running your tests.
+  test:
+    commands:
+      # Your test package is downloaded and unpackaged into the $DEVICEFARM_TEST_PACKAGE_PATH directory.
+      - cd $DEVICEFARM_TEST_PACKAGE_PATH
+      - echo "Starting the Appium Java JUnit test"
+
+      # Below are examples of how to run Appium Java tests on Device Farm using different JUnit versions:
       # 1. JUnit 5 (default configuration)
       # 2. TestNG with support for running JUnit 4 tests
       # 3. JUnit 4
