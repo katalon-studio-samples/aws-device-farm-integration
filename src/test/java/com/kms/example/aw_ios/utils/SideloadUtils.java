@@ -63,9 +63,13 @@ public class SideloadUtils {
             if (zipEntry.isDirectory()) {
                 newFile.mkdirs();
             } else {
-                FileOutputStream fos = new FileOutputStream(newFile);
-                IOUtils.copy(zis, fos);
-                fos.close();
+                try {
+                    FileOutputStream fos = new FileOutputStream(newFile);
+                    IOUtils.copy(zis, fos);
+                    fos.close();
+                } catch (FileNotFoundException ignored) {
+                    // Prevent empty folders: __MacOS, .DS_Store
+                }
             }
         }
 
